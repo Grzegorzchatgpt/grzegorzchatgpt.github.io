@@ -81,7 +81,20 @@
         })(window, document, 'script', 'https://an.gr-wcon.com/script/edcd64c6-adb6-4d02-90c3-f38f25eed523/ga.js', 'GrTracking');
     </script>
     <!-- Koniec GetResponse Analytics -->
-</head>
+</head><script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js') // Zmień nazwę na 'wenconect.js' jeśli plik GetResponse ma taką nazwę
+            .then(function(registration) {
+                console.log('Service Worker zarejestrowany!', registration);
+            })
+            .catch(function(error) {
+                console.log('Rejestracja Service Workera nie powiodła się:', error);
+            });
+    } else {
+        console.log('Service Workery nie są obsługiwane w tej przeglądarce.');
+    }
+</script>
+
 <body>
     <header class="header">Ekskluzywna Pielęgnacja dla Twojej Skóry</header>
     
